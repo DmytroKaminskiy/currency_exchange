@@ -6,6 +6,6 @@
 
 optional:
   install docker
-  
+  https://www.digitalocean.com/community/tutorials/docker-ubuntu-18-04-1-ru
   install docker-compose
-  
+  https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04-ru
