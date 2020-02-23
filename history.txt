@@ -863,3 +863,351 @@
   250  docker-compose -f dc.yml up -d
   251  git status
   252  history >> history.txt 
+    1  df -h
+    2  mkdir projects
+    3  cd projects/
+    4  git clone https://github.com/DmytroKaminskiy/students_tracker.git
+    5  sudo apt install git
+    6  sudo apt
+    7  sudo apt install git
+    8  ps aux | grep -i apt
+    9  sudo apt install git
+   10  sudo lsof /var/lib/dpkg/lock
+   11  sudo lsof /var/lib/apt/lists/lock
+   12  sudo lsof /var/cache/apt/archives/lock
+   13  sudo apt install git
+   14  sudo kill 2537 -9
+   15  sudo apt install git
+   16  git clone https://github.com/DmytroKaminskiy/students_tracker.git
+   17  cd
+   18  cd projects/students_tracker/
+   19  python3 -m venv env
+   20  sudo apt install python3-dev && rm -rf env && python3 -m venv env
+   21  sudo apt install python3-venv && rm -rf env && python3 -m venv env
+   22  . env/bin/activate
+   23  pip install -r requirements.txt 
+   24  python src/manage.py runserver
+   25  python src/manage.py migrate
+   26  python src/manage.py runserver
+   27  python src/manage.py makemigrations
+   28  python src/manage.py migrate
+   29  python src/manage.py runserver
+   30  . env/bin/activate
+   31  python src/manage.py shell
+   32  python src/manage.py createsuperuser
+   33  python src/manage.py shell
+   34  git status
+   35  git add --all
+   36  git commit -m "update"
+   37  git config --global user.email "dmytro.kaminskyi92@gmail.com"
+   38  git config --global user.name "dmytro.kaminskyi92@gmail.com"
+   39  git commit -m "update"
+   40  git status
+   41  git push origin master 
+   42  sudo apt-get install guake
+   43  df -h
+   44  cd projects/students_tracker/
+   45  git status
+   46  git pull origin master 
+   47  sudo apt update
+   48  sudo apt-get install guake
+   49  sudo killall apt apt-get snap
+   50  sudo apt-get install guake
+   51  sudo lsof /var/cache/apt/archives/lock
+   52  sudo kill 2330 -9
+   53  sudo apt-get install guake
+   54  sudo lsof /var/lib/dpkg/lock
+   55  sudo kill 4718 -9
+   56  sudo apt-get install guake
+   57  cd projects/co
+   58  cd projects/students_tracker/
+   59  . env/bin/activate
+   60  python src/manage.py runserver
+   61  pip freeze > requirements.txt 
+   62  cd src/
+   63  ls -la
+   64  gunicorn students_tracker.wsgi
+   65  gunicorn
+   66  ls
+   67  which ls
+   68  /home/python/projects/students_tracker/env/bin/gunicorn students_tracker.wsgi
+   69  pwd
+   70  history
+   71  /home/python/projects/students_tracker/env/bin/gunicorn students_tracker.wsgi
+   72  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001
+   73  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001 --workers 4
+   74  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001 --workers 8
+   75  cd ..
+   76  git status
+   77  git add --all
+   78  git commit -m "update"
+   79  git push origin master 
+   80  cd /etc/nginx/
+   81  sudo nano sites-available/default 
+   82  sudo nginx -t
+   83  sudo service nginx restart
+   84  sudo nano sites-available/default 
+   85  sudo nginx -t
+   86  sudo service nginx restart
+   87  sudo service nginx status
+   88  ls -la
+   89  echo $?
+   90  sesgsregrg
+   91  echo $?
+   92  history
+   93  ls -la
+   94  ls -la sites-enabled/
+   95  ifconfig
+   96  sudo apt install net-tools
+   97  ifconfig
+   98  ls -la
+   99  cat proxy_params 
+  100  . env/bin/activate
+  101  . ../env/bin/activate
+  102  python manage.py collectstatic
+  103  supervisor
+  104  supervisord
+  105  sudo apt install supervisor
+  106  cd /etc/supervisor/
+  107  supervisorctl 
+  108  ls -la
+  109  cd conf.d/
+  110  ls -la
+  111  sudo nano gunicorn.conf
+  112  pwd
+  113  cat gunicorn.conf 
+  114  sudo systemctl gunicorn start
+  115  ls -la
+  116  sudo supervisorctl reread
+  117  sudo supervisorctl update
+  118  sudo systemctl gunicorn start
+  119  sudo systemctl gunicorn status
+  120  sudo supervisorctl start gunicorn
+  121  sudo supervisorctl status gunciron
+  122  sudo supervisorctl status gunicorn
+  123  history
+  124  sudo nano gunicorn.conf
+  125  sudo supervisorctl restart gunicorn
+  126  sudo supervisorctl status gunicorn
+  127  sudo supervisorctl logs gunicorn
+  128  cd projects/students_tracker/
+  129  . env/bin/activate
+  130  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001 --workers 8
+  131  pwd
+  132  ls
+  133  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001 --workers 8
+  134  pwd
+  135  ls
+  136  cd src/
+  137  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001 --workers 8
+  138  pip install uwsgi
+  139  gunicorn students_tracker.wsgi --bind 0.0.0.0:8001 --workers 8
+  140  pip install uwsgi
+  141  sudo apt-get install gcc
+  142  pip install uwsgi
+  143  uwsgi --http :8001 --wsgi-file students_tracker.wsgi.py
+  144  uwsgi --http :8001 --wsgi-file students_tracker/wsgi.py
+  145  cd students_tracker/
+  146  uwsgi --http :8001 --wsgi-file wsgi.py
+  147  cd ..
+  148  uwsgi --http :8001 --wsgi-file wsgi.py
+  149  uwsgi --http :8001 --wsgi-file students_tracker/wsgi.py
+  150  python manage.py runserver 8001
+  151  cd ../..
+  152  cd 
+  153  pwd
+  154  ls -la
+  155  cd .ssh/
+  156  ls -la
+  157  ssh-keygen -t rsa -b 4096 -C "dmytro.kaminskyi92@gmail.com"
+  158  ls -la
+  159  cat id_rsa.pub 
+  160  eval "$(ssh-agent -s)"
+  161  ssh-add id_rsa
+  162  cat id_rsa.pub 
+  163  cat ~/.ssh/id_rsa.pub 
+  164  cd ~/projects/
+  165  git clone git@github.com:DmytroKaminskiy/currency_exchange.git
+  166  cd currency_exchange/
+  167  nano README.md 
+  168  git status
+  169  git add --all
+  170  git commit -m 'initial commit'
+  171  git push origin master 
+  172  history
+  173  history >> history.txt
+  174  deactivate
+  175  python3
+  176  python3 -m venv env
+  177  . env/bin/activate
+  178  git status
+  179  cat .gitignore 
+  180  pip install django==2.2.10
+  181  pip freeze > requirements.txt
+  182  mkdir src
+  183  cd src/
+  184  django-admin startproject currency_exchange .
+  185  ll
+  186  python manage.py runserver
+  187  python manage.py runserver 8001
+  188  python manage.py startapp account
+  189  pip install flake8
+  190  flake8 src/
+  191  flake8 
+  192  cd ..\
+  193  cd src/
+  194  which bash
+  195  ./manage.py
+  196  ./check.py
+  197  ./check.sh
+  198  ls -la
+  199  chmod u+x check.sh 
+  200  ./check.sh 
+  201  cd ../
+  202  python src/manage.py runserver
+  203  ./check.sh 
+  204  pip check
+  205  pip freeze > requirements.txt
+  206  git status
+  207  history >> history.txt
+  208  git add --all
+  209  git commit -m "setup project"
+  210  git push origin master 
+  211  ls -la
+  212  cd ../students_tracker/
+  213  cd ../currency_exchange/
+  214  python src/manage.py makemigrations
+  215  python src/manage.py migrate
+  216  python src/manage.py createsuperuser
+  217  python src/manage.py runserver
+  218  python src/manage.py runserver 8801
+  219  python src/manage.py runserver 8001
+  220  python src/manage.py shell
+  221  python src/manage.py shell_plus
+  222  pip install django-extensions
+  223  pip freeze > requirements.txt
+  224  pip install django-extensions
+  225  python src/manage.py shell_plus
+  226  python src/manage.py shell_lus
+  227  python src/manage.py shell_plus
+  228  pip install ipython
+  229  pip freeze > requirements.txt
+  230  python src/manage.py shell_plus
+  231  python src/manage.py runserver 8001
+  232  pip freeze > requirements.txt
+  233  history >> history.txt
+  234  git add --all
+  235  git commit -m "initial"
+  236  git push origin master 
+  237  git commit -am "add docker" && git push origin master 
+  238  cd projects/currency_exchange/
+  239  docker-compose -f dc.yml up -d
+  240  docker-compose -f dc.yml ps
+  241  . env/bin/activate
+  242  python src/manage.py migrate
+  243  docker-compose -f dc.yml down
+  244  docker-compose -f dc.yml up -d
+  245  python src/manage.py migrate
+  246  docker-compose -f dc.yml down
+  247  docker-compose -f dc.yml up -d
+  248  python src/manage.py migrate
+  249  docker-compose -f dc.yml down
+  250  docker-compose -f dc.yml up -d
+  251  git status
+  252  history >> history.txt 
+  253  git add --all
+  254  git ommit -m "aw"
+  255  git commit -m "aw"
+  256  git push origin master 
+  257  cd projects/currency_exchange/
+  258  git status
+  259  git add --all
+  260  git commit -m "update"
+  261  git push origin master 
+  262  df -h
+  263  docker system prune
+  264  cd ~/projects/currency_exchange/
+  265  docker-compose -f dc.yml up -d
+  266  docker-compose -f dc.yml ps
+  267  docker logs -f --tail 100 backend
+  268  docker-compose -f dc.yml up -d
+  269  docker-compose ps
+  270  docker-compose -f dc.yml ps
+  271  docker logs -f --tail 100 backend
+  272  docker-compose -f dc.yml up -d
+  273  docker-compose -f dc.yml ps
+  274  docker exec -it backend bash
+  275  docker-compose -f dc.yml up -d
+  276  docker exec -it backend bash
+  277  docker exec -it backend python src/manage.py shell_plus
+  278  docker-compose -f dc.yml up -d
+  279  docker-compose -f dc.yml ps
+  280  docker exec -it backend python src/manage.py shell_plus
+  281  docker-compose -f dc.yml up -d
+  282  docker-compose -f dc.yml ps
+  283  docker logs celery
+  284  docker exec -it backend python src/manage.py shell_plus
+  285  docker logs celery
+  286  docker exec -it backend python src/manage.py shell_plus
+  287  docker-compose -f dc.yml up -d
+  288  docker-compose -f dc.yml ps
+  289  docker logs celery
+  290  docker logs -f celery
+  291  docker-compose -f dc.yml restart
+  292  docker logs -f celery
+  293  docker-compose -f dc.yml up -d
+  294  docker logs -f celery
+  295  docker-compose -f dc.yml up -d
+  296  docker logs -f celery
+  297  docker-compose -f dc.yml ps
+  298  git status
+  299  ls -la /etc/nginx/sites-enabled/
+  300  docker-compose -f dc.yml up -d
+  301  sudo service nginx stop
+  302  docker-compose -f dc.yml up -d
+  303  docker exec -it backend bash
+  304  docker-compose -f dc.yml up -d
+  305  docker-compose -f dc.yml ps
+  306  docker logs -f nginx
+  307  docker exec -it nginx sh
+  308  docker-compose -f dc.yml up -d
+  309  docker-compose -f dc.yml up -d --build
+  310  docker-compose -f dc.yml up -d nginx
+  311  docker logs -f nginx
+  312  cd nginx/
+  313  docker build
+  314  docker build .
+  315  cd ..
+  316  docker-compose -f dc.yml up -d nginx
+  317  docker-compose -f dc.yml restart nginx
+  318  docker logs -f nginx
+  319  docker exec -it nginx sh
+  320  docker-compose -f dc.yml up -d
+  321  cd nginx/
+  322  docker build .
+  323  cd ..
+  324  docker-compose -f dc.yml up -d
+  325  docker-compose -f dc.yml restart nginx
+  326  docker exec -it nginx sh
+  327  clear
+  328  docker-compose -f dc.yml up -d
+  329  docker logs -f nginx
+  330  docker-compose -f dc.yml up -d
+  331  docker logs -f nginx
+  332  cat /etc/nginx/proxy_params 
+  333  docker-compose -f dc.yml up -d
+  334  docker logs -f nginx
+  335  docker-compose -f dc.yml ps
+  336  git add --all
+  337  git commit -m "adwa"
+  338  git push origin master 
+  339  docker-compose -f dc.yml down
+  340  docker system prune
+  341  docker images prune
+  342  docker ps -a
+  343  cd ..
+  344  ls -la
+  345  cd currency_exchange/
+  346  docker-compose -f dc.yml up -d
+  347  docker logs -f --tail 100 nginx
+  348  history >> history.txt 
