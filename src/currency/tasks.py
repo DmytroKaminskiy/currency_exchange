@@ -7,6 +7,7 @@ from currency.models import Rate
 from currency import model_choices as mch
 
 
+@shared_task()
 def _privat():
     url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
     response = requests.get(url)
@@ -39,11 +40,13 @@ def _privat():
 
             # print(Rate.objects.filter(currency=currency, source=mch.SR_PRIVAT).query)
 
+
+@shared_task()
 def _mono():
     pass
 
 
 @shared_task()
 def parse_rates():
-    _privat()
-    _mono()
+    _privat.delay()
+    _mono.delay()
