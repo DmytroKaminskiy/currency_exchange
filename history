@@ -1,0 +1,74 @@
+    1  sudo apt-get install obs-studio
+    2  sudo apt update
+    3  sudo apt-get install obs-studio
+    4  ps aux | grep -i apt
+    5  sudo apt-get install obs-studio
+    6  ps aux | grep -i apt
+    7  sudo kill 1282
+    8  sudo kill 1305
+    9  sudo apt-get install obs-studio
+   10  ps aux | grep -i apt
+   11  sudo killall apt apt-get
+   12  sudo killall apt apt-get snap
+   13  sudo apt-get install obs-studio
+   14  sudo lsof /var/lib/dpkg/lock
+   15  sudo kill -9 2160
+   16  sudo apt-get install obs-studio
+   17  sudo lsof /var/lib/apt/lists/lock
+   18  sudo lsof /var/cache/apt/archives/lock
+   19  sudo lsof /var/lib/apt/lists/lock
+   20  sudo apt-get install obs-studio
+   21  sudo lsof /var/lib/dpkg/lock-frontend
+   22  sudo kill -9 3887
+   23  sudo apt-get install obs-studio
+   24  sudo apt-get install guake
+   25  mkdir projects
+   26  cd projects/
+   27  htop
+   28  top
+   29  top | grep "python3"
+   30  cat top | grep "python3"
+   31  ps -aux | grep "python3"
+   32  ps -aux
+   33  grep
+   34  ls -la
+   35  grep "time" main.py 
+   36  ps -aux | grep "python3"
+   37  sudo apt install htopp
+   38  sudo apt install htop
+   39  htop
+   40  python3 main.py 
+   41  python3
+   42  python3 main.py 
+   43  sudo apt --upgrade
+   44  sudo apt upgrade
+   45  df -h
+   46  docker ps -a
+   47  ls -la
+   48  cat .env.example > .env
+   49  cat .env
+   50  docker-compose up -d
+   51  docker-compose ps
+   52  docker logs -f --tail 100 backend
+   53  docker-compose up -d backend
+   54  docker exec -it backend bash
+   55  docker-compose up -d 
+   56  docker exec -it backend bash
+   57  docker-compose up -d 
+   58  docker logs -f --tail 100 celery
+   59  docker-compose restart
+   60  docker logs -f --tail 100 celery
+   61  docker-compose restart
+   62  docker-compose up -d 
+   63  docker exec -it backend python ./src/manage.py 0:8001
+   64  docker exec -it backend python ./src/manage.py runserver 0:8001
+   65  docker exec -it backend python ./src/manage.py migrate
+   66  docker exec -it backend python ./src/manage.py runserver 0:8001
+   67  docker exec -it backend python ./src/manage.py createsuperuser
+   68  docker exec -it backend python ./src/manage.py runserver 0:8001
+   69  docker exec -it backend python ./src/manage.py makemigrations
+   70  docker exec -it backend python ./src/manage.py migrate
+   71  docker exec -it backend python ./src/manage.py runserver 0:8001
+   72  docker-compose ps
+   73  docker-compose up -d
+   74  history > history
