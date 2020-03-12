@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, CreateView
+from django.views.generic import UpdateView, CreateView, View
 from account.models import User, Contact
 
 
@@ -17,6 +17,10 @@ class MyProfile(UpdateView):
     queryset = User.objects.filter(is_active=True)
     fields = ('email', )
     success_url = reverse_lazy('index')
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(id=self.request.user.id)
 
 
 class ContactUs(CreateView):
