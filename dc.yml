@@ -77,6 +77,7 @@ services:
     container_name: nginx
     volumes:
       - ./nginx:/etc/nginx/conf.d/
+      - ./static_content:/etc/nginx/static_content/
     ports:
       - "80:80"
       - "443:443"
