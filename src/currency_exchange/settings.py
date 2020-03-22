@@ -131,7 +131,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -159,3 +159,5 @@ try:
     from currency_exchange.settings_local import *  # noqa
 except ImportError:
     print('settings_local.py not found!\n' * 5)
+
+#  EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

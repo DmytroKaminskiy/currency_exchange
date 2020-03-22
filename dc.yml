@@ -36,7 +36,7 @@ services:
 
   celerybeat:
     build: .
-    command: celery -A currency_exchange beat -l info --workdir=/srv/project/src
+    command: /bin/bash ./commands/start_celerybeat.sh
     container_name: celerybeat
     restart: always
     env_file:

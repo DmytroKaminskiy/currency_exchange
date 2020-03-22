@@ -30,7 +30,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
       <span class="d-block d-lg-none">{{ request.user.get_full_name }}</span>
-      {% if request.user.is_authenticated %}
+      {% if request.user.is_authenticated and request.user.avatar %}
       <span class="d-none d-lg-block">
         <img class="img-fluid img-profile rounded-circle mx-auto mb-2"
              src="{{ request.user.avatar.url }}" alt="">
@@ -72,6 +72,9 @@
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
         {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account:signup' %}">SignUp</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
