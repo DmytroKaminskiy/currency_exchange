@@ -6,6 +6,7 @@ from account.models import User
 class SignUpForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
+    # email = forms.EmailField
 
     class Meta:
         model = User

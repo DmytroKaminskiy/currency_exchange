@@ -5,7 +5,7 @@ services:
   # wsgi
   backend:
     build: .
-    command: python src/manage.py runserver 0:8000
+    command: /bin/bash ./commands/wsgi/${SERVER}.sh
 #    command: tail -f /dev/null
     container_name: backend
     restart: always
