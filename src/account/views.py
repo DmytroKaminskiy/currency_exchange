@@ -1,10 +1,10 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, CreateView, View
+from django.views.generic import UpdateView, CreateView, View, FormView
 
-from account.forms import SignUpForm
-from account.models import User, Contact, ActivationCode
+from account.forms import SignUpForm, ActivateForm
+from account.models import User, Contact, ActivationCode, SmsCode
 
 
 def smoke(request):
@@ -42,15 +42,30 @@ class ContactUs(CreateView):
 class SignUpView(CreateView):
     template_name = 'signup.html'
     queryset = User.objects.all()
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('account:activate')
     form_class = SignUpForm
 
+    def get_success_url(self):
+        self.request.session['user_id'] = self.object.id
+        return super().get_success_url()
 
-class Activate(View):
-    def get(self, request, activation_code):
+
+class Activate(FormView):
+    form_class = ActivateForm
+    template_name = 'signup.html'
+
+    # def dispatch(self, request, *args, **kwargs):
+    #     super().dispatch()
+
+    def post(self, request):
+        user_id = request.session['user_id']
+        sms_code = request.POST['sms_code']
+
         ac = get_object_or_404(
-            ActivationCode.objects.select_related('user'),
-            code=activation_code, is_activated=False,
+            SmsCode.objects.select_related('user'),
+            code=sms_code,
+            user_id=user_id,
+            is_activated=False,
         )
 
         if ac.is_expired:
@@ -63,3 +78,6 @@ class Activate(View):
         user.is_active = True
         user.save(update_fields=['is_active'])
         return redirect('index')
+
+
+# user form create -> sms -> check sms code
