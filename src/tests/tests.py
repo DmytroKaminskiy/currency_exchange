@@ -23,26 +23,16 @@ def test_rates_not_auth(client):
     assert resp_j['detail'] == 'Authentication credentials were not provided.'
 
 
-@pytest.mark.django_db
-def test_rates_auth(api_client):
+def test_rates_auth(api_client, user):
     url = reverse('api-currency:rates')
     response = api_client.get(url)
     assert response.status_code == 401
 
-    # create user
-    email = 'srjgkbdrgjdbr@mail.com'
-    password = '1234567'
-    user = User.objects.create(email=email, username=email)
-    user.set_password(password)
-    user.save()
-
-    api_client.login(email, password)
+    api_client.login(user.username, user.raw_password)
     response = api_client.get(url)
     assert response.status_code == 200
 
 
-@pytest.mark.skip
-@pytest.mark.django_db
 def test_get_rates(api_client, user):
     url = reverse('api-currency:rates')
     api_client.login(user.email, user.raw_password)
@@ -59,7 +49,6 @@ class Response:
     pass
 
 
-@pytest.mark.django_db
 def test_task(mocker):
     from currency.tasks import _privat
 
@@ -73,7 +62,6 @@ def test_task(mocker):
 
     _privat()
 
-@pytest.mark.django_db
 def test_send_email():
     from django.core import mail
     from account.tasks import send_activation_code_async

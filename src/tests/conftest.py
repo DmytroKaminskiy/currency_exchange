@@ -6,7 +6,7 @@ from pytest_django.fixtures import _django_db_fixture_helper
 from rest_framework.test import APIClient
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope='session', autouse=True)
 def db_session(request, django_db_setup, django_db_blocker):
     """
     Changed scope to 'session'
