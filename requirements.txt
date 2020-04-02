@@ -52,3 +52,4 @@ zipp==2.2.0
 pytest-django
 faker
 pytest-cov
+pytest-mock

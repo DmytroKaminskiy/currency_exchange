@@ -5,3 +5,4 @@ cat ~/.ssh/id_rsa.pub
 
 --cov=./src ./src --cov-config .coveragerc --cov-report html
 docker exec -it backend pytest --cov=./src ./src --cov-config .coveragerc --cov-report html
+docker exec -it backend pytest --cov=./src ./src/tests/test_sanity.py::test_send_email --cov-config .coveragerc --cov-report html -s
