@@ -11,6 +11,7 @@ from currency import model_choices as mch
 def _privat():
     url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'
     response = requests.get(url)
+    breakpoint()
     r_json = response.json()
     # print(r_json)
 
