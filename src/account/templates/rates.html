@@ -1,11 +1,22 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}My profile{% endblock title %}
 
 {% block content %}
+
+    <form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </form>
+
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>id</th>
             <th>Created</th>
             <th>Currency</th>
             <th>Buy</th>
@@ -15,14 +26,35 @@
         </thead>
         <tbody>
         {% for obj in object_list %}
-        <tr>
-            <td>{{ obj.created }}</td>
-            <td>{{ obj.get_currency_display }}</td>
-            <td>{{ obj.buy }}</td>
-            <td>{{ obj.sale }}</td>
-            <td>{{ obj.get_source_display }}</td>
-        </tr>
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.created }}</td>
+                <td>{{ obj.get_currency_display }}</td>
+                <td>{{ obj.buy }}</td>
+                <td>{{ obj.sale }}</td>
+                <td>{{ obj.get_source_display }}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
+    {% if is_paginated %}
+        <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1&{{ query_params }}">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}&{{ query_params }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}&{{ query_params }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}&{{ query_params }}">last &raquo;</a>
+        {% endif %}
+    </span>
+        </div>
+    {% endif %}
+
 {% endblock content %}

@@ -2,8 +2,10 @@ from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView, CreateView, View, ListView
+from django_filters.views import FilterView
 
 from account.forms import SignUpForm
+from account.filters import RateFilter
 from account.models import User, Contact, ActivationCode
 from currency.models import Rate
 
@@ -66,6 +68,18 @@ class Activate(View):
         return redirect('index')
 
 
-class RatesList(ListView):
+class RatesList(FilterView):
     queryset = Rate.objects.all()
     template_name = 'rates.html'
+    paginate_by = 10
+    filterset_class = RateFilter
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        if self.request.GET:
+            from urllib.parse import urlencode
+            query = dict(self.request.GET.items())
+            if 'page' in query:
+                del query['page']
+            context['query_params'] = urlencode(query)
+        return context
