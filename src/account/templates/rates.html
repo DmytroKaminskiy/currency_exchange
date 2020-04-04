@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}My profile{% endblock title %}
+
+{% block content %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Created</th>
+            <th>Currency</th>
+            <th>Buy</th>
+            <th>Sale</th>
+            <th>Source</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for obj in object_list %}
+        <tr>
+            <td>{{ obj.created }}</td>
+            <td>{{ obj.get_currency_display }}</td>
+            <td>{{ obj.buy }}</td>
+            <td>{{ obj.sale }}</td>
+            <td>{{ obj.get_source_display }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

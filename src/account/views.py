@@ -1,10 +1,11 @@
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, CreateView, View
+from django.views.generic import UpdateView, CreateView, View, ListView
 
 from account.forms import SignUpForm
 from account.models import User, Contact, ActivationCode
+from currency.models import Rate
 
 
 def smoke(request):
@@ -63,3 +64,8 @@ class Activate(View):
         user.is_active = True
         user.save(update_fields=['is_active'])
         return redirect('index')
+
+
+class RatesList(ListView):
+    queryset = Rate.objects.all()
+    template_name = 'rates.html'
