@@ -77,6 +77,11 @@ def test_send_email():
     email = mail.outbox[0]
     assert email.subject == 'Your activation code'
 
+
+def test_smoke(client):
+    response = client.get(reverse('account:smoke'))
+    assert response.status_code == 200
+
 # tests for ContactUs API, GET list, create (POST), for object [GET, PUT, PATCH, DELETE]
 # test _privat, _mono
 

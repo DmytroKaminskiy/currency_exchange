@@ -21,6 +21,9 @@ class User(AbstractUser):
                                null=True, blank=True,
                                default=None)
 
+    def __str__(self):
+        return str(self.__dict__)
+
 
 class Contact(models.Model):
     email = models.EmailField()

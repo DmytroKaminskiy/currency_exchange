@@ -3,9 +3,18 @@
 {% block title %}My profile{% endblock title %}
 
 {% block content %}
+
+    <form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </form>
+
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Created</th>
             <th>Currency</th>
             <th>Buy</th>
@@ -15,14 +24,18 @@
         </thead>
         <tbody>
         {% for obj in object_list %}
-        <tr>
-            <td>{{ obj.created }}</td>
-            <td>{{ obj.get_currency_display }}</td>
-            <td>{{ obj.buy }}</td>
-            <td>{{ obj.sale }}</td>
-            <td>{{ obj.get_source_display }}</td>
-        </tr>
+            <tr>
+                <td>{{ obj.id }}</td>
+                <td>{{ obj.created }}</td>
+                <td>{{ obj.get_currency_display }}</td>
+                <td>{{ obj.buy }}</td>
+                <td>{{ obj.sale }}</td>
+                <td>{{ obj.get_source_display }}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
+
+    {% include 'includes/pagination.html' %}
+
 {% endblock content %}
