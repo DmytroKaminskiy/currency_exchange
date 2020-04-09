@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Latest Rates{% endblock title %}
+
+{% block content %}
+    {% for rate in rates %}
+        <p>{{ rate }}</p>
+    {% endfor %}
+{% endblock content %}

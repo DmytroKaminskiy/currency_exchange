@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, CreateView, View, ListView
+from django.views.generic import UpdateView, CreateView, View, ListView, TemplateView
 
 from account.forms import SignUpForm
 from account.models import User, Contact, ActivationCode
@@ -71,7 +71,7 @@ from django_filters.views import FilterView
 from account.filters import RateFilter
 
 
-class RatesList(LoginRequiredMixin, FilterView):
+class RatesList(FilterView):
     filterset_class = RateFilter
     queryset = Rate.objects.all()
     template_name = 'rates.html'
@@ -95,3 +95,54 @@ class RatesList(LoginRequiredMixin, FilterView):
     # def paginate_by(self):
     #     paginate = int(self.request.GET.get('paginate-by'))
     #     return paginate
+
+
+class LatestRates(TemplateView):
+    template_name = 'latest-rates.html'
+
+    def get_context_data(self, **kwargs):
+        from currency import model_choices as mch
+        from django.core.cache import cache
+
+        context = super().get_context_data(**kwargs)
+        # rates = {
+        #     'privatBank': [Rate.objects.filter(source=mch.SR_PRIVAT, currency=mch.CURR_USD).last(),
+        #                    Rate.objects.filter(source=mch.SR_PRIVAT, currency=mch.CURR_EUR).last()],
+        #     'MonoBank': [Rate.objects.filter(source=mch.SR_MONO, currency=mch.CURR_USD).last(),
+        #                    Rate.objects.filter(source=mch.SR_MONO, currency=mch.CURR_EUR).last()]
+        # }
+
+        rates = []
+        for bank in mch.SOURCE_CHOICES:
+            source = bank[0]
+            for curr in mch.CURRENCY_CHOICES:
+                currency = curr[0]
+                from currency.utils import generate_rate_cache_key
+                cache_key = generate_rate_cache_key(source, currency)
+
+                rate = cache.get(cache_key)
+
+                if rate is None:
+                    rate = Rate.objects.filter(source=source, currency=currency).order_by('created').last()
+                    if rate:
+                        rate_dict = {
+                            'currency': rate.currency,
+                            'source': rate.source,
+                            'sale': rate.sale,
+                            'buy': rate.buy,
+                            'created': rate.created,
+                        }
+                        rates.append(rate_dict)
+                        cache.set(cache_key, rate_dict, 60 * 15)  # 15 minutes
+                        # cache.set(cache_key, rate_dict, 5)  # 5 seconds
+                else:
+                    rates.append(rate)
+
+        context['rates'] = rates
+        # Rate.objects.filter(source=mch.SR_PRIVAT, currency=mch.CURR_USD).order_by('-created')[0]
+        return context
+
+'''
+source PrivatBank - latest USD, latest UER
+source MonoBank - latest USD, latest UER
+'''
