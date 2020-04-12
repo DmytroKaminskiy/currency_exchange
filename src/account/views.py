@@ -6,6 +6,7 @@ from django.views.generic import UpdateView, CreateView, View, ListView, Templat
 
 from account.forms import SignUpForm
 from account.models import User, Contact, ActivationCode
+from account.tasks import send_tel_message
 from currency.models import Rate
 
 
@@ -64,6 +65,11 @@ class Activate(View):
         user = ac.user
         user.is_active = True
         user.save(update_fields=['is_active'])
+
+        ### SEND MESSAGE
+        # send_tel_message()
+        send_tel_message.delay()
+
         return redirect('index')
 
 
