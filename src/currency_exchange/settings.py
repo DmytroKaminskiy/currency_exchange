@@ -210,6 +210,11 @@ SWAGGER_SETTINGS = {
     },
 }
 
+TELEGRAM_HANDLERS = [
+    'account.telegram_handlers',
+    'currency.telegram_handlers',
+]
+
 try:
     from currency_exchange.settings_local import *  # noqa
 except ImportError:

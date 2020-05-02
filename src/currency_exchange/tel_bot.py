@@ -1,7 +1,10 @@
 import logging
 import os
+import importlib
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
+from django.conf import settings
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -27,8 +30,10 @@ def telegram():
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
 
-    for handler in handlers:
-        dp.add_handler(handler)
+    for module in settings.TELEGRAM_HANDLERS:
+        handlers = importlib.import_module(module).handlers
+        for handler in handlers:
+            dp.add_handler(handler)
 
     # log all errors
     dp.add_error_handler(error)
