@@ -53,3 +53,4 @@ pytest-django
 pytest-mock
 pytest-cov
 django-filter
+python-telegram-bot
